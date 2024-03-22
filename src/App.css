@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+
+
+section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.information-container {
   display: flex;
   flex-direction: column;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.name-container {
+  display: flex;
+}
+
+.foto {
+  height: 15em;
+  margin-left: 3em;
+}
+
+.email-container,
+.github-container,
+.linkedin-container,
+.phone-container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-right: 3em;
 }
 
-.App-link {
-  color: #61dafb;
+.email-logo,
+.github-logo,
+.linkedin-logo,
+.phone-logo {
+  height: 2em;
+  margin-right: 0.5em;
+}
+.edit {
+  width: 5rem;
+  height: 2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.desc {
+  margin-top: 5em;
+  margin-left: 3em;
+  margin-right: 0.5em;
+
+}
+
+.education {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.separador {
+  background-color: black;
+  height: 0.2em;
+  width: 100%;
+  display: block;
+  margin-bottom: 3em;
+}
+.experience-container > .separador {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+
+.edu-container {
+  border: 1px solid black;
+  margin-left: 3em;
+  grid-row: 3;
+  padding: 1em;
+
+}
+.titulo-edu {
+    margin-left: 1.4em;
+    grid-column: 1;
+}
+.titulo-univer {
+  border-bottom: 1px solid black;
+}
+
+.experience-container {
+  margin-top: 5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.experience-container > h1 {
+  margin-left: 1.4em;
+}
+
+.experience-box {
+  border: 1px solid black;
+  grid-row: 3;
+  margin-left: 3em;
+  padding: 1em;
+}
+
+.titulo-exp {
+  border-bottom: 1px solid black;
 }
