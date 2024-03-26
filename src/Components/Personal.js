@@ -8,9 +8,13 @@ import '../App.css';
 
 const Personal = () => {
   const [edit, setEdit] = useState(false);
-  const [name, setName] = useState('Filipe Gideão Rodrigues');
+  const [nameValue, setName] = useState('Filipe Gideão Rodrigues');
   const [emailValue, setEmailValue] = useState('filipegrodriguesreal@gmail.com');
   const [phoneValue, setPhoneValue] = useState('(62) 98259-5874');
+  const [subnomeValue, setSubnomeValue] = useState('Front-end Developer');
+  const [githubValue, setGithubValue] = useState('FilipeVOl');
+  const [linkedinValue, setLinkedinValue] = useState('linkedin.com/filipe-gideão-rodrigues');
+  const [descValue, setDescValue] = useState('Aplicação do conhecimento de elementos do front-end development, como JS, React, Angular, Typescript, CSS, Git e Linux. Participação no evento Hackathon onde foi desenvolvido um software de aplicação de dados para a permissão de entrada e cadastramento de veículos. Cursos profissionalizantes no site Odin Project e alguns projetos disponíveis na minha conta GitHub');
 
   const handleEditClick = () => {
     setEdit(!edit);
@@ -28,31 +32,22 @@ const Personal = () => {
       case 'phone':
         setPhoneValue(value);
         break;
+      case 'sub-nome':
+        setSubnomeValue(value);
+        break;
+      case 'github':
+        setGithubValue(value);
+        break;
+      case 'linkedin':
+        setLinkedinValue(value);
+        break;
+      case 'desc':
+        setDescValue(value)
+        break;
       default:
         break;
     }
   }
-
-  const renderContent = () => {
-    if (edit) {
-      return (
-        <form>
-          <input type="text" name="name" value={name} onChange={handleInputChange} />
-          <input type="email" name="email" value={emailValue} onChange={handleInputChange} />
-          <input type="tel" name="phone" value={phoneValue} onChange={handleInputChange} />
-        </form>
-      );
-    } else {
-      return (
-        <div>
-          <p>Name: {name}</p>
-          <p>Email: {emailValue}</p>
-          <p>Phone: {phoneValue}</p>
-        </div>
-      );
-    }
-  };
-    
 
   return (
     <div>
@@ -60,33 +55,85 @@ const Personal = () => {
         <div className='name-container'>
           <img src={foto} alt='foto de perfil' className='foto'/>
           <div className='text'>
-            <h1>{name}</h1>
-            <h2>Front-End Developer</h2>
+            {edit ? (
+              <input
+                type="text"
+                name="name"
+                value={nameValue}
+                onChange={handleInputChange}
+              />
+            ) : (
+              <h1 className='name'>{nameValue}</h1>
+            )}
+              {edit ? (
+                <input
+                  type='text'
+                  name='sub-nome'
+                  value={subnomeValue}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                <h2 className='subnome'>Front end Developer</h2>
+              )}
           </div>
         </div>
 
         <div className='information-container'>
           <div className='email-container'>  
             <img src={email} alt='email-logo' className='email-logo'/>
+            {edit ? (
+              <input
+              type='email'
+              name='email'
+              value={emailValue}
+              onChange={handleInputChange}
+              />
+            ) : (
             <p className='email'>{emailValue}</p>
+            )}
           </div>
 
           <div className='linkedin-container'>
             <img src={linkedin} alt='linkedin-logo' className='linkedin-logo'/>
+            {edit ? (
+              <input
+              type='text'
+              name='linkedin'
+              value={linkedinValue}
+              onChange={handleInputChange}
+              />
+            ) : (
             <p className='linkedin'>linkedin.com/filipe-gideão-rodrigues</p>
+            )}
           </div>
 
           <div className='github-container'>
             <img src={github} alt='github-logo' className='github-logo'/>
+            {edit ? (
+              <input
+              type='text'
+              name='github'
+              value={githubValue}
+              onChange={handleInputChange}
+              />
+            ) : (
             <p className='github'>FilipeVOl</p>
+            )}
           </div>
 
           <div className='phone-container'>
             <img src={phone} alt='phone-logo' className='phone-logo' />
-            <p className='phone'>{phoneValue}</p>
+            {edit ? (
+              <input
+              type='tel'
+              name='phone'
+              value={phoneValue}
+              onChange={handleInputChange}
+              />
+            ) : (
+              <p className='phone'>{phoneValue}</p>
+            )}
           </div>
-
-          {renderContent()}
 
           <button className='edit' onClick={handleEditClick}>
             {edit ? 'Save' : 'Edit'}
@@ -94,10 +141,20 @@ const Personal = () => {
         </div>
       </section>
 
-      <p className='desc'>Aplicação do conhecimento de elementos do front-end development, como JS, React, Angular, Typescript, CSS, Git e Linux.
-         Participação no evento Hackathon onde foi desenvolvido um software de aplicação de dados para a permissão de entrada e cadastramento de veículos.
-          Cursos profissionalizantes no site Odin Project e alguns projetos disponíveis na minha conta GitHub
+      {edit ? (
+              <input
+              type='text'
+              name='desc'
+              value={descValue}
+              onChange={handleInputChange}
+              />
+            ) : (
+              <p className='desc'>Aplicação do conhecimento de elementos do front-end development, como JS, React, Angular, Typescript, CSS, Git e Linux.
+        Participação no evento Hackathon onde foi desenvolvido um software de aplicação de dados para a permissão de entrada e cadastramento de veículos.
+        Cursos profissionalizantes no site Odin Project e alguns projetos disponíveis na minha conta GitHub
       </p>
+            )}
+      
       <span className='separador'></span>
     </div>
   );

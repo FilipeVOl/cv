@@ -36,6 +36,16 @@ section {
   margin-right: 3em;
 }
 
+input {
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+input[name='desc'] {
+  font-size: 1rem;
+}
+
 .email-logo,
 .github-logo,
 .linkedin-logo,
@@ -107,4 +117,9 @@ section {
 
 .titulo-exp {
   border-bottom: 1px solid black;
+}
+
+.button-div {
+  display: flex;
+  justify-content: end;
 }
